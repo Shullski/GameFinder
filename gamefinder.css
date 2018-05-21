@@ -1,0 +1,318 @@
+* {
+  box-sizing: border-box; }
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: black; }
+
+.VHcenter {
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%); }
+
+.glare {
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at 70% 10%, rgba(200, 200, 200, 0.8), transparent 30%);
+  z-index: 10;
+  pointer-events: none; }
+  .glare:before {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: radial-gradient(transparent, transparent, rgba(10, 10, 10, 0.9) 85%);
+    border-radius: 0; }
+
+.window {
+  width: 98%;
+  height: 98%;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  overflow: hidden;
+  background-image: url("images/arcade.jpg");
+  background-size: cover;
+  background-position: center;
+  border-bottom-left-radius: 50% 30px;
+  border-bottom-right-radius: 50% 30px;
+  border-top-left-radius: 50% 30px;
+  border-top-right-radius: 50% 30px; }
+
+.slideContainer {
+  transition: 1s ease; }
+
+.header {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  border: 5px solid #10bff4;
+  border-radius: inherit; }
+  .header .tagline {
+    z-index: 2;
+    font-family: 'VT323', sans-serif;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-shadow: 0 0 40px white; }
+  .header h1 {
+    color: white;
+    display: inline-block;
+    font-size: 78px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px; }
+  .header h2 {
+    font-family: 'VT323', sans-serif;
+    color: white;
+    font-size: 32px;
+    margin: 0;
+    padding: 0; }
+  .header .startUnder {
+    position: absolute;
+    z-index: 11;
+    height: 45px;
+    width: 200px;
+    background-color: #ff009c;
+    cursor: pointer;
+    font-family: 'VT323', sans-serif;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.2s cubic-bezier(0, 0, 0.2, 1); }
+    .header .startUnder .start {
+      position: absolute;
+      transition: inherit;
+      width: 100%;
+      height: 100%;
+      background-color: #10bff4;
+      opacity: 0.8;
+      transform: translate(5px, -5px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22), 0 0 40px #10bff4; }
+    .header .startUnder:hover .start {
+      transform: translate(2px, -2px);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), 0 0 40px #10bff4; }
+    .header .startUnder:active .start {
+      transform: translate(0, 0); }
+    .header .startUnder:hover {
+      box-shadow: 0 0 50px #ff009c; }
+    .header .startUnder span {
+      position: absolute;
+      display: block;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-transform: uppercase;
+      color: white;
+      text-shadow: 0 0 20px white;
+      font-size: 18px;
+      user-select: none;
+      z-index: 2; }
+
+.input {
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateX(100%);
+  color: white;
+  font-family: 'VT323', fantasy;
+  text-shadow: 0 0 40px white;
+  z-index: 1;
+  border: 5px solid #10bff4;
+  border-radius: inherit;
+  overflow-y: scroll;
+  padding: 50px 10px 50px 10px; }
+  .input h1 {
+    text-align: center;
+    font-size: 6vw;
+    margin-bottom: 10px; }
+  .input h2 {
+    text-align: center;
+    font-size: 3vw;
+    margin-bottom: 20px; }
+  .input .genres {
+    max-width: 1000px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: flex-start;
+    margin-bottom: 100px; }
+  .input .genreContainer {
+    position: relative;
+    padding: 12px;
+    width: 50%; }
+    @media only screen and (min-width: 768px) {
+      .input .genreContainer {
+        width: 25%; } }
+    .input .genreContainer .buttonBottom {
+      height: 45px;
+      width: 100%;
+      display: block;
+      background-color: #10bff4;
+      position: relative;
+      cursor: pointer;
+      transition: 0.2s cubic-bezier(0, 0, 0.2, 1); }
+      .input .genreContainer .buttonBottom:hover {
+        box-shadow: 0 0 30px #ff009c; }
+      .input .genreContainer .buttonBottom:active .buttonTop {
+        transform: translate(0, 0); }
+    .input .genreContainer .buttonTop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #ff009c;
+      opacity: 0.8;
+      transform: translate(5px, -5px);
+      transition: inherit;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22), 0 0 10px #ff009c; }
+      .input .genreContainer .buttonTop span {
+        position: absolute;
+        display: block;
+        opacity: 1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-transform: uppercase;
+        color: white;
+        text-shadow: 0 0 20px white;
+        font-size: 18px;
+        user-select: none;
+        z-index: 2; }
+
+.recommendedList {
+  list-style-type: none;
+  padding: 5px;
+  max-width: 1000px;
+  margin: auto; }
+  .recommendedList .recommendedGame {
+    background-color: rgba(16, 191, 244, 0.8);
+    padding: 15px;
+    width: 100%;
+    box-shadow: 0 0 20px #10bff4;
+    margin-bottom: 50px; }
+    .recommendedList .recommendedGame h3 {
+      margin: 0;
+      display: inline;
+      font-size: 24px; }
+    .recommendedList .recommendedGame p {
+      background-color: rgba(255, 0, 156, 0.8);
+      padding: 10px;
+      box-shadow: 0 0 20px #ff009c; }
+    .recommendedList .recommendedGame span {
+      width: 100%;
+      text-align: right;
+      text-shadow: 0 0 3px white;
+      display: block; }
+    .recommendedList .recommendedGame img {
+      padding-left: 5px; }
+
+.slideIn {
+  animation: slideInAnimation 1.5s ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards; }
+
+@keyframes slideInAnimation {
+  60% {
+    transform: translateX(30%); }
+  65% {
+    transform: translateX(30%); }
+  80% {
+    transform: translateX(40%); }
+  100% {
+    transform: translateX(0%); } }
+.slideOut {
+  animation: slideOutAnimation 1.5s ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards; }
+
+@keyframes slideOutAnimation {
+  70% {
+    transform: translateX(10%) scale(0.8); }
+  100% {
+    transform: translateX(-100%) scale(0.8); } }
+.cursor {
+  animation: blinkingCursor 1.2s step-end infinite; }
+
+@keyframes blinkingCursor {
+  50% {
+    opacity: 0; } }
+.flicker {
+  animation: flickerAnimation 10s infinite;
+  animation-delay: 2s; }
+
+@keyframes flickerAnimation {
+  .2% {
+    opacity: 1; }
+  .4% {
+    opacity: 0.4; }
+  .6% {
+    opacity: 1; }
+  .8% {
+    opacity: 0.4; }
+  1% {
+    opacity: 1; }
+  1.2% {
+    opacity: 0.4; }
+  1.4% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+.glitch {
+  position: absolute;
+  display: block;
+  top: -5%;
+  left: 0;
+  height: 5%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  animation: glitchAnimation infinite;
+  animation-duration: 20s;
+  animation-delay: 4s; }
+
+@keyframes glitchAnimation {
+  8% {
+    transform: translateY(110vh);
+    opacity: 1; }
+  10% {
+    opacity: 0; }
+  100% {
+    transform: translateY(0);
+    opacity: 0; } }
+input[type="checkbox"] {
+  display: none; }
+
+input[type="checkbox"]:checked + .buttonTop {
+  transform: translate(2px, -2px);
+  box-shadow: 0 0 50px #10bff4;
+  opacity: 0.5; }
+  input[type="checkbox"]:checked + .buttonTop span {
+    opacity: 1;
+    z-index: 200; }
+
+/*# sourceMappingURL=retroarcade.css.map */
