@@ -56,11 +56,6 @@ body {
 
 }
 
-.slideContainer {
-  //transition: 1s cubic-bezier(0.0, 0.0, 0.2, 1);
-  transition:1s ease;
-}
-
 .header{
   height:100%;
   width:100%;
@@ -87,6 +82,7 @@ body {
     display:inline-block;
     font-size:78px;
     margin:0;padding:0;
+    text-transform: uppercase;
     margin-bottom:10px;
   }
   h2 {
@@ -153,17 +149,19 @@ body {
   border:5px solid $blue;
   border-radius: inherit;
   overflow-y: scroll;
-  padding:50px 10px 50px 10px;
+  -webkit-overflow-scrolling: touch;
+  padding:30px 10px 50px 10px;
 
   h1 {
     text-align: center;
     font-size:6vw;
-    margin-bottom:10px;
+    margin-bottom:5px;
   }
   h2 {
     text-align: center;
     font-size:3vw;
     margin-bottom:20px;
+    margin-top:0;
   }
   .genres {
     max-width:1000px;
@@ -266,6 +264,7 @@ body {
   padding:5px;
   max-width:1000px;
   margin:auto;
+  display:none;
   .recommendedGame {
     background-color:transparentize($blue, 0.2);
     padding:15px;

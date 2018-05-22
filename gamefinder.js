@@ -76,9 +76,6 @@ function bubbleSort(arr) {
 /*===============*/
 $(document).ready(function(){
   //RANDOM TIMING FOR GLITCH EFFECT------
-  var randomInterval = Math.floor(Math.random() * (25-15)) + 15;
-  $('.glitch').css('animation-duration', randomInterval);
-
   //ANIMATE TO SECOND SCREEN-------------
   $('.startUnder').click(function(){
     $('.header').addClass('slideOut');
@@ -137,6 +134,8 @@ $(document).ready(function(){
          $(targetSpan).append(' | ' + matchedGames[i].genres[j]);
        }
      }
+     $('.recommendedList').fadeIn(500);
+     if(matchedGames.length == 0) $('.recommendedList').fadeOut(0);
   });
 
   //SMOOTH SCROLLING---------------------
