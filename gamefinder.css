@@ -160,7 +160,7 @@ body {
     flex-wrap: wrap;
     margin: auto;
     justify-content: flex-start;
-    margin-bottom: 100px; }
+    margin-bottom: 30px; }
   .input .genreContainer {
     position: relative;
     padding: 12px;
@@ -205,6 +205,46 @@ body {
         user-select: none;
         z-index: 2; }
 
+.calculateBottom {
+  position: relative;
+  z-index: 11;
+  height: 45px;
+  width: 200px;
+  background-color: #ff009c;
+  cursor: pointer;
+  font-family: 'VT323', sans-serif;
+  margin: auto;
+  margin-bottom: 30px;
+  transition: 0.2s cubic-bezier(0, 0, 0.2, 1); }
+  .calculateBottom .calculateTop {
+    position: absolute;
+    transition: inherit;
+    width: 100%;
+    height: 100%;
+    background-color: #10bff4;
+    opacity: 0.8;
+    transform: translate(5px, -5px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22), 0 0 40px #10bff4; }
+  .calculateBottom:hover .calculateTop {
+    transform: translate(2px, -2px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24), 0 0 40px #10bff4; }
+  .calculateBottom:active .calculateTop {
+    transform: translate(0, 0); }
+  .calculateBottom:hover {
+    box-shadow: 0 0 50px #ff009c; }
+  .calculateBottom span {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 0 0 20px white;
+    font-size: 18px;
+    user-select: none;
+    z-index: 2; }
+
 .recommendedList {
   list-style-type: none;
   padding: 5px;
@@ -219,18 +259,20 @@ body {
     .recommendedList .recommendedGame h3 {
       margin: 0;
       display: inline;
-      font-size: 24px; }
+      font-size: 24px;
+      margin-right: 10px; }
     .recommendedList .recommendedGame p {
-      background-color: rgba(255, 0, 156, 0.8);
+      background-color: rgba(255, 0, 156, 0.7);
       padding: 10px;
       box-shadow: 0 0 20px #ff009c; }
     .recommendedList .recommendedGame span {
       width: 100%;
       text-align: right;
       text-shadow: 0 0 3px white;
-      display: block; }
+      display: block;
+      text-transform: uppercase; }
     .recommendedList .recommendedGame img {
-      padding-left: 5px; }
+      margin-left: 5px; }
 
 .slideIn {
   animation: slideInAnimation 1.5s ease;
@@ -315,4 +357,4 @@ input[type="checkbox"]:checked + .buttonTop {
     opacity: 1;
     z-index: 200; }
 
-/*# sourceMappingURL=retroarcade.css.map */
+/*# sourceMappingURL=gamefinder.css.map */

@@ -172,7 +172,7 @@ body {
     flex-wrap: wrap;
     margin:auto;
     justify-content: flex-start;
-    margin-bottom:100px;
+    margin-bottom:30px;
   }
   .genreContainer {
     position:relative;
@@ -220,6 +220,47 @@ body {
   }
 }
 
+.calculateBottom {
+  position:relative;
+  z-index: 11;
+  height:45px;
+  width:200px;
+  background-color:$pink;
+  cursor:pointer;
+  font-family: 'VT323', sans-serif;
+  margin:auto;
+  margin-bottom: 30px;
+  transition: 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
+  .calculateTop {
+    position:absolute;
+    transition:inherit;
+    width:100%;
+    height:100%;
+    background-color:$blue;
+    opacity:0.8;
+    transform:translate(5px,-5px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22), 0 0 40px $blue;
+  }
+  &:hover .calculateTop{
+    transform:translate(2px,-2px);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24), 0 0 40px $blue;
+  }
+  &:active .calculateTop {transform:translate(0,0);}
+  &:hover {box-shadow: 0 0 50px $pink};
+  span {
+    position:absolute;
+    display:block;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    text-transform: uppercase;
+    color:white;
+    text-shadow:0 0 20px white;
+    font-size: 18px;
+    user-select: none;
+    z-index: 2;
+  }
+}
+
 .recommendedList {
   list-style-type: none;
   padding:5px;
@@ -234,11 +275,11 @@ body {
     h3{
       margin:0;
       display:inline;
-      //border:1px solid white;
       font-size:24px;
+      margin-right:10px;
     }
     p{
-      background-color:transparentize($pink, 0.2);
+      background-color:transparentize($pink, 0.3);
       padding:10px;
       box-shadow: 0 0 20px $pink;
     }
@@ -247,9 +288,10 @@ body {
       text-align:right;
       text-shadow: 0 0 3px white;
       display:block;
+      text-transform: uppercase;
     }
     img{
-      padding-left:5px;
+      margin-left:5px;
     }
   }
 }

@@ -91,15 +91,17 @@ $(document).ready(function(){
   });
 
   //POPULATE FAVORITE GENRES ARRAY-------
-  $('h2').on('click', function() {
+  $('.calculateBottom').on('click', function() {
     chosenGenres = []; //empty array
     matchedGames = [];
     var matches = 0;
 
+    //ensure only 3 selected
     $("input:checked").each(function(index){
       chosenGenres[index] = $(this).attr('id');
     });
 
+    //populate recommended games array
     for(var i = 0; i < GAMES.length; i++) {
       GAMES[i].isMatch(chosenGenres);
       if (GAMES[i].relevance) {
@@ -108,19 +110,32 @@ $(document).ready(function(){
       }
     }
 
-    //bubble sort
+    //organize results based on relevance
     matchedGames = bubbleSort(matchedGames);
+    //remove previous recommendations
     $('.recommendedList').empty();
+
+    //generate list of games
      for(var i = 0; i < matchedGames.length;i++) {
-       console.log(matchedGames[i].title + ' - ' + matchedGames[i].relevance);
        $('.recommendedList').append(
-         "<li class = 'recommendedGame'>" +
+         "<li class = 'recommendedGame' id ='" + i + "'>" +
          "<h3>" + matchedGames[i].title + "</h3>" +
-         "<img src = 'images/pixelHeart.svg' width = '25px'>" +
          "<p>" + matchedGames[i].description + "</p>" +
-         "<span>Genres</span" +
+         "<span></span>" +
          "</li>"
        );
+     }
+
+     //Give gaves their hearts and genres
+     for(var i = 0; i < matchedGames.length; i++) {
+       var targetH3 = $('#' + i).find('h3');
+       var targetSpan = $('#' + i).find('span');
+       for(var j = 0; j < matchedGames[i].relevance; j++) {
+         $(targetH3).after("<img src = 'images/pixelHeart.svg' width = '20px'>");
+       }
+       for(var j = 0; j < matchedGames[i].genres.length; j++) {
+         $(targetSpan).append(' | ' + matchedGames[i].genres[j]);
+       }
      }
   });
 
